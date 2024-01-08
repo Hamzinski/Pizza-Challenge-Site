@@ -10,7 +10,7 @@ function Homepage() {
       <img src={images}></img>
       <h1>KOD ACIKTIRIR<br/>PIZZA, DOYURUR</h1>
       <Link id="order-pizza" to="/order">
-      <button>ACIKTIM</button>
+      <button id="aciktim">ACIKTIM</button>
       </Link>
       </div>
       
