@@ -1,7 +1,9 @@
 import React from 'react'
 import images from "../../Assets/logo.svg";
 import "./order.css"
+import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const initialForm = {
   size: '',
@@ -18,12 +20,15 @@ const errorMessages = {
 };
 
 
+
 export default function Order() {
   const [form, setForm] = useState(initialForm);
   const [disableButton, setDisableButton] = useState(true);
   const [selectedMalzemeCount, setSelectedMalzemeCount] = useState(0);
   const [count, setCount] = useState(1);
 
+  const history = useHistory();
+  
   const isOrderValid = () => {
     return (
       form.size !== '' &&
@@ -71,7 +76,17 @@ export default function Order() {
 
     console.log("Boyut:", form.size +" "+ "Hamur:", form.hamur +" "+ "Malzemeler:", form.malzeme +" " +"Sipariş notu:", form.not);
                                   
-    
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      
+      axios.post('https://reqres.in/api/users', form).then((res) => {
+        console.log(res.data);
+        setForm(initialForm);
+        
+      });
+      history.push("/recieve")
+      //formu submit
+    };
 
   return (
   <>
@@ -102,7 +117,7 @@ export default function Order() {
     hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizza bazen pizzetta denir.</p>
   </div>
 
-<form>
+  <form onSubmit={handleSubmit}>
   <div class="radyo-select">
 <div class = "radyo">
   <h3>Boyut Seç*</h3>
@@ -197,7 +212,9 @@ export default function Order() {
                 </div>
             </div>
                 <div>
+               
                     <button class="siparis-button" disabled={!isOrderValid()}>SİPARİŞ VER</button>
+                    
                 </div>
           </div>
       </div>
