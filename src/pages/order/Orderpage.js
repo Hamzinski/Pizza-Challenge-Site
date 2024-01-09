@@ -1,12 +1,13 @@
 import React from 'react'
 import images from "../../Assets/logo.svg";
 import "./order.css"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const initialForm = {
   size: '',
   hamur:'',
   malzeme: [],
+  not:"",
 
 };
 const initialErrors = {
@@ -17,9 +18,26 @@ const errorMessages = {
 };
 
 
-
 export default function Order() {
   const [form, setForm] = useState(initialForm);
+  const [disableButton, setDisableButton] = useState(true);
+  const [selectedMalzemeCount, setSelectedMalzemeCount] = useState(0);
+  const [count, setCount] = useState(1);
+
+  const isOrderValid = () => {
+    return (
+      form.size !== '' &&
+      form.hamur !== '' &&
+      form.malzeme.length >= 4 &&
+      form.malzeme.length <= 10 &&
+      count !== 0 
+    );
+  };
+
+  useEffect(() => {
+    const selectedMalzemeCount = form.malzeme.length;
+    setSelectedMalzemeCount(form.malzeme.length);
+  }, [form.malzeme]);
 
 
   const handleChange = (event) => {
@@ -30,24 +48,30 @@ export default function Order() {
     } else if (type === 'select-one') {
       setForm({ ...form, [name]: value });
     } else if (type === 'checkbox') {
-      if (checked) {
-        setForm({
-          ...form,
-          malzeme: [...form.malzeme, value],
-        });
-      } else {
-        setForm({
-          ...form,
-          malzeme: form.malzeme.filter(
-            (topping) => topping !== value
-          ),
-        });
-      }
-    }
-  };
-    console.log("Boyut:", form.size +" "+ "Hamur:", form.hamur +" "+ "Malzemeler:", form.malzeme);
- 
+        if (checked) {
+        setForm({...form, malzeme: [...form.malzeme, value],});
+                      } else {
+        setForm({...form,malzeme: form.malzeme.filter((topping) => topping !== value),});
+                            }
+                          }else if (name === 'not') {
+                              setForm({ ...form, not: value });
+                                    }
+                                    
+                                  };
+                                  const increment = () => {
+                                    setCount(count + 1);
+                                  };
+                                
+                                  const decrement = () => {
+                                    if (count > 0) {
+                                      setCount(count - 1);
+                                    }
+                                  };
+                              
 
+    console.log("Boyut:", form.size +" "+ "Hamur:", form.hamur +" "+ "Malzemeler:", form.malzeme +" " +"Sipariş notu:", form.not);
+                                  
+    
 
   return (
   <>
@@ -136,8 +160,8 @@ export default function Order() {
 </div>
 
 <div class ="box-3">
-<input type="checkbox" id="Kavada Jambonu" name="malzeme" value="Kavada Jambonu" onChange={handleChange} />
-<label for="Sosis">Kavada Jambonu</label><br></br><br></br>
+<input type="checkbox" id="Kanada Jambonu" name="malzeme" value="Kanada Jambonu" onChange={handleChange} />
+<label for="Sosis">Kanada Jambonu</label><br></br><br></br>
 <input type="checkbox" id="Domates" name="malzeme" value="Domates" onChange={handleChange} />
 <label for="Domates">Domates</label><br></br><br></br>
 <input type="checkbox" id="Jalepeno" name="malzeme" value="Jalepeno" onChange={handleChange} />
@@ -152,26 +176,28 @@ export default function Order() {
 <div class="footer">
   <p class="siparis-notu">Sipariş Notu</p>
     <div>
-      <textarea name="not" id="not" cols="70" rows="3" 
+      <textarea name="not" id="not" cols="70" rows="3" value={form.not} onChange={handleChange}
         placeholder = "Siparişine eklemek istediğiniz bir not var mı?"></textarea>
       <hr />
     </div>
       <div class="siparis-ver">
       <div class="butonlar">
-        <button class="buton">-</button><div class="buton-div">0</div><button class="buton">+</button></div>
+        <button type="button" class="buton" onClick={decrement}>-</button>
+        <div class="buton-div">{count}</div>
+        <button type="button" class="buton" onClick={increment}>+</button></div>
           <div className='order-card'>
             <div className='siparis-toplam'> <h3>Sipariş Toplamı</h3>
               <div className='siparis-ust'>
                 <p>Seçimler</p>
-                <p>25TL</p>
+                <p>{count * (selectedMalzemeCount * 5)}TL</p>
                 </div>
                 <div className='siparis-alt'>
                 <p>Toplam</p>
-                <p>110TL</p>
+                <p>{((selectedMalzemeCount * 5) + 85.50) * count}TL</p>
                 </div>
             </div>
                 <div>
-                    <button class="siparis-button">SİPARİŞ VER</button>
+                    <button class="siparis-button" disabled={!isOrderValid()}>SİPARİŞ VER</button>
                 </div>
           </div>
       </div>
