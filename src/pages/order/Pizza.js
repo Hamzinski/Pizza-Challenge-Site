@@ -15,7 +15,6 @@ const initialForm = {
 
 export default function Order() {
   const [form, setForm] = useState(initialForm);
-  const [disableButton, setDisableButton] = useState(true);
   const [selectedMalzemeCount, setSelectedMalzemeCount] = useState(0);
   const [count, setCount] = useState(1);
 
