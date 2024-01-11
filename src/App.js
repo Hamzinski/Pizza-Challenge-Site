@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import Homepage from "./pages/home/Homepage";
 import Order from "./pages/order/Pizza";
 import Success from "./pages/order-recieved/SuccessPage";
 function App() {
+  const [currentOrder, setCurrentOrder] = useState({});
+  const orderHandler = (order) => {
+    setCurrentOrder(order);
+    console.log("order:", order);
+  };
+
   return (
     <>
       <Router>
@@ -12,10 +18,10 @@ function App() {
             <Homepage />
           </Route>
           <Route exact path="/pizza">
-            <Order />
+            <Order orderHandler={orderHandler} />
           </Route>
           <Route exact path="/success">
-            <Success />
+            <Success order={currentOrder} />
           </Route>
         </Switch>
       </Router>

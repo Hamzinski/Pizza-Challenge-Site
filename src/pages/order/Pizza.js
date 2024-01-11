@@ -38,7 +38,7 @@ const hamurSecenekleri = [
   { value: "Extra Kalin", label: "Extra Kalın" },
 ];
 
-export default function Order() {
+export default function Order({orderHandler}) {
   const [form, setForm] = useState(initialForm);
   const [selectedMalzemeCount, setSelectedMalzemeCount] = useState(0);
   const [count, setCount] = useState(1);
@@ -97,12 +97,17 @@ export default function Order() {
       adet: count,
       toplamTutar: (selectedMalzemeCount * 5 + 85.5) * count,
     };
-    axios.post("https://reqres.in/api/users", formData).then((res) => {
+    axios.post("https://reqres.in/api/users", formData)
+    .then((res) => {
       console.log(res.data);
       setForm(initialForm);
       history.push("/success");
+      orderHandler(res.data)
+    })
+    .catch((error) => {
+      console.error("Axios error:", error);
     });
-  };
+};
 
   return (
     <>
@@ -202,6 +207,12 @@ export default function Order() {
                   <br />
                 </div>
               ))}
+              {form.malzeme.length > 0 &&
+                (form.malzeme.length < 4 || form.malzeme.length > 10) && (
+                  <p className="error-message">
+                    Lütfen en az 4 veya en fazla 10 malzeme seçiniz.*
+                  </p>
+                )}
             </div>
           </div>
           <div class="footer barlow">
@@ -212,6 +223,9 @@ export default function Order() {
               value={form.isim}
               name="isim"
             />
+            {form.isim.length > 0 && form.isim.length <= 2 && (
+              <p className="error-message">Lütfen 2'den fazla harf seçiniz.*</p>
+            )}
             <p class="siparis-notu">Sipariş Notu</p>
             <div>
               <textarea

@@ -145,3 +145,6 @@ label {
   margin-right: 330px;
   color: white;
 }
+.error-message{
+  color: red;
+}

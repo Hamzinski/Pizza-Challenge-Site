@@ -4,21 +4,54 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
+  color: white;
 }
 
 .success-container div img {
   margin-top: 100px;
+  margin-bottom: 50px;
 }
 
-.success-container div p {
-  color: white;
+.dividiv {
   text-align: center;
-  font-size: 5rem;
-  margin-top: 250px;
 }
 #alindi {
   font-family: "Roboto Condensed", sans-serif;
+  font-size: 5rem;
+}
+#yolda {
+  font-family: "Satisfy", cursive;
+  color: #fdc913;
+  font-size: 2.1rem;
+}
+#paap {
+  font-family: "Barlow", sans-serif;
+  font-size: 22px;
+}
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 0;
+  width: 275px;
+  margin-top: 45px;
+  font-family: "Barlow", sans-serif;
+}
+.price-card {
+  border: 1px solid white;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  width: 350px;
+  font-family: "Barlow", sans-serif;
+}
+#secim {
+  display: flex;
+  justify-content: space-around;
+}
+#tutar {
+  display: flex;
+  justify-content: space-around;
 }
