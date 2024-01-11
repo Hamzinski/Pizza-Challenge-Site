@@ -12,6 +12,31 @@ const initialForm = {
   malzeme: [],
   not: "",
 };
+const malzemeler = [
+  "Pepperoni",
+  "Sosis",
+  "Kanada Jambonu",
+  "Tavuk Izgara",
+  "Soğan",
+  "Domates",
+  "Mısır",
+  "Sucuk",
+  "Jalepeno",
+  "Sarımsak",
+  "Biber",
+  "Sucuk",
+  "Ananas",
+  "Kabak",
+];
+const pizzaSizes = ["Küçük", "Orta", "Büyük"];
+const hamurSecenekleri = [
+  { value: "", label: "Hamur Kalınlığı" },
+  { value: "Extra İnce", label: "Extra İnce" },
+  { value: "İnce", label: "İnce" },
+  { value: "Normal", label: "Normal" },
+  { value: "Kalin", label: "Kalın" },
+  { value: "Extra Kalin", label: "Extra Kalın" },
+];
 
 export default function Order() {
   const [form, setForm] = useState(initialForm);
@@ -32,7 +57,6 @@ export default function Order() {
   };
 
   useEffect(() => {
-    const selectedMalzemeCount = form.malzeme.length;
     setSelectedMalzemeCount(form.malzeme.length);
   }, [form.malzeme]);
 
@@ -66,23 +90,18 @@ export default function Order() {
     }
   };
 
-  console.log(
-    "Boyut:",
-    form.size + " " + "Hamur:",
-    form.hamur + " " + "Malzemeler:",
-    form.malzeme + " " + "Sipariş notu:",
-    form.not
-  );
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    axios.post("https://reqres.in/api/users", form).then((res) => {
+    const formData = {
+      ...form,
+      adet: count,
+      toplamTutar: (selectedMalzemeCount * 5 + 85.5) * count,
+    };
+    axios.post("https://reqres.in/api/users", formData).then((res) => {
       console.log(res.data);
       setForm(initialForm);
+      history.push("/success");
     });
-    history.push("/success");
-    //formu submit
   };
 
   return (
@@ -128,36 +147,21 @@ export default function Order() {
               <h3 class="barlow">
                 Boyut Seç<span>*</span>
               </h3>
-              <input
-                type="radio"
-                id="Küçük"
-                name="size"
-                value="Küçük"
-                onChange={handleChange}
-              />
-              <label for="html">Küçük</label>
-              <br></br>
-              <br></br>
-              <input
-                type="radio"
-                id="Orta"
-                name="size"
-                value="Orta"
-                onChange={handleChange}
-              />
-              <label for="html">Orta</label>
-              <br></br>
-              <br></br>
-              <input
-                type="radio"
-                id="Büyük"
-                name="size"
-                value="Büyük"
-                onChange={handleChange}
-              />
-              <label for="html">Büyük</label>
-              <br></br>
-              <br></br>
+              {pizzaSizes.map((size, index) => (
+                <div key={index}>
+                  <input
+                    type="radio"
+                    id={size}
+                    name="size"
+                    value={size}
+                    onChange={handleChange}
+                    checked={form.size === size}
+                  />
+                  <label htmlFor={size}>{size}</label>
+                  <br />
+                  <br />
+                </div>
+              ))}
             </div>
 
             <div class="select-materyal">
@@ -172,14 +176,11 @@ export default function Order() {
                 selected
                 onChange={handleChange}
               >
-                <option value="" disabled selected hidden>
-                  Hamur Kalınlığı
-                </option>
-                <option value="Extra İnce">Extra İnce</option>
-                <option value="İnce">İnce</option>
-                <option value="Normal">Normal</option>
-                <option value="Kalin">Kalın</option>
-                <option value="Extra Kalin">Extra Kalın</option>
+                {hamurSecenekleri.map((secenek, index) => (
+                  <option key={index} value={secenek.value}>
+                    {secenek.label}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -187,154 +188,20 @@ export default function Order() {
             <h3 class="barlow">Ek Malzemeler</h3>
             <p class="barlow">En Fazla 10 Malzeme Seçebilirsiniz.5₺</p>
             <div class="check-box barlow">
-              <div class="box-1">
-                <input
-                  type="checkbox"
-                  id="Pepperoni"
-                  name="malzeme"
-                  value="Pepperoni"
-                  onChange={handleChange}
-                />
-                <label for="Pepperoni">Pepperoni</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Tavuk Izgara"
-                  name="malzeme"
-                  value="Tavuk Izgara"
-                  onChange={handleChange}
-                />
-                <label for="Tavuk Izgara">Tavuk Izgara</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Mısır"
-                  name="malzeme"
-                  value="Mısır"
-                  onChange={handleChange}
-                />
-                <label for="Mısır">Mısır</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Sarımsak"
-                  name="malzeme"
-                  value="Sarımsak"
-                  onChange={handleChange}
-                />
-                <label for="Sarımsak">Sarımsak</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Ananas"
-                  name="malzeme"
-                  value="Ananas"
-                  onChange={handleChange}
-                />
-                <label for="Ananas">Ananas</label>
-                <br></br>
-                <br></br>
-              </div>
-
-              <div class="box-2">
-                <input
-                  type="checkbox"
-                  id="Sosis"
-                  name="malzeme"
-                  value="Sosis"
-                  onChange={handleChange}
-                />
-                <label for="Sosis">Sosis</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Soğan"
-                  name="malzeme"
-                  value="Soğan"
-                  onChange={handleChange}
-                />
-                <label for="Soğan">Soğan</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Sucuk"
-                  name="malzeme"
-                  value="Sucuk"
-                  onChange={handleChange}
-                />
-                <label for="Sucuk">Sucuk</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Biber"
-                  name="malzeme"
-                  value="Biber"
-                  onChange={handleChange}
-                />
-                <label for="Biber">Biber</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Kabak"
-                  name="malzeme"
-                  value="Kabak"
-                  onChange={handleChange}
-                />
-                <label for="Kabak">Kabak</label>
-                <br></br>
-                <br></br>
-              </div>
-
-              <div class="box-3">
-                <input
-                  type="checkbox"
-                  id="Kanada Jambonu"
-                  name="malzeme"
-                  value="Kanada Jambonu"
-                  onChange={handleChange}
-                />
-                <label for="Sosis">Kanada Jambonu</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Domates"
-                  name="malzeme"
-                  value="Domates"
-                  onChange={handleChange}
-                />
-                <label for="Domates">Domates</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Jalepeno"
-                  name="malzeme"
-                  value="Jalepeno"
-                  onChange={handleChange}
-                />
-                <label for="Jalepeno">Jalepeno</label>
-                <br></br>
-                <br></br>
-                <input
-                  type="checkbox"
-                  id="Sucuk"
-                  name="malzeme"
-                  value="Sucuk"
-                  onChange={handleChange}
-                />
-                <label for="Sucuk">Sucuk</label>
-                <br></br>
-                <br></br>
-              </div>
+              {malzemeler.map((malzeme, index) => (
+                <div key={index}>
+                  <input
+                    type="checkbox"
+                    name="malzeme"
+                    id={malzeme}
+                    value={malzeme.toLowerCase()}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor={malzeme}>{malzeme}</label>
+                  <br />
+                  <br />
+                </div>
+              ))}
             </div>
           </div>
           <div class="footer barlow">

@@ -38,10 +38,18 @@
   border: none;
 }
 
-.check-box {
+.check-box{
   display: flex;
-  gap: 100px;
-}
+   gap: 13px;
+   flex-wrap: wrap;
+   width: 581px;
+   row-gap: 5px;
+  }
+  .check-box >div{
+  flex-basis: 150px;
+  }
+
+
 .buton-div {
   width: 47px;
   height: 56px;
