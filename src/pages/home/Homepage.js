@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <div class="home">
       <div class="test">
-        <img src={images}></img>
+        <img src={images} alt=""></img>
         <h1>
           KOD ACIKTIRIR
           <br />
