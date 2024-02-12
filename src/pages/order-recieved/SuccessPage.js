@@ -8,7 +8,7 @@ function Success({ order }) {
       <div>
         <img src={logo} />
       </div>
-      <div  className="dividiv">
+      <div className="dividiv">
         <p>
           <span id="yolda">lezzetin yolda</span> <br />
           <span id="alindi">SİPARİŞ ALINDI</span>
@@ -19,7 +19,10 @@ function Success({ order }) {
       <div className="infos">
         <p>Boyut:{order.size}</p>
         <p>Hamur:{order.hamur}</p>
-        <p>Ek Malzemeler:{order.malzeme}</p>
+        <p>
+          Ek Malzemeler:{" "}
+          {Array.isArray(order.malzeme) ? order.malzeme.join(", ") : "N/A"}
+        </p>
       </div>
       <div className="price-card">
         <p>Sipariş Toplamı</p>
@@ -32,7 +35,7 @@ function Success({ order }) {
           <p>{order.toplamTutar} TL</p>
         </div>
       </div>
-      </div>
+    </div>
   );
 }
 

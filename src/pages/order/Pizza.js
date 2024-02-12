@@ -38,7 +38,7 @@ const hamurSecenekleri = [
   { value: "Extra Kalin", label: "Extra Kalın" },
 ];
 
-export default function Order({orderHandler}) {
+export default function Order({ orderHandler }) {
   const [form, setForm] = useState(initialForm);
   const [selectedMalzemeCount, setSelectedMalzemeCount] = useState(0);
   const [count, setCount] = useState(1);
@@ -97,17 +97,18 @@ export default function Order({orderHandler}) {
       adet: count,
       toplamTutar: (selectedMalzemeCount * 5 + 85.5) * count,
     };
-    axios.post("https://reqres.in/api/users", formData)
-    .then((res) => {
-      console.log(res.data);
-      setForm(initialForm);
-      history.push("/success");
-      orderHandler(res.data)
-    })
-    .catch((error) => {
-      console.error("Axios error:", error);
-    });
-};
+    axios
+      .post("https://reqres.in/api/users", formData)
+      .then((res) => {
+        console.log(res.data);
+        setForm(initialForm);
+        history.push("/success");
+        orderHandler(res.data);
+      })
+      .catch((error) => {
+        console.error("Axios error:", error);
+      });
+  };
 
   return (
     <>
@@ -199,7 +200,7 @@ export default function Order({orderHandler}) {
                     type="checkbox"
                     name="malzeme"
                     id={malzeme}
-                    value={malzeme.toLowerCase()}
+                    value={malzeme}
                     onChange={handleChange}
                   />
                   <label htmlFor={malzeme}>{malzeme}</label>
