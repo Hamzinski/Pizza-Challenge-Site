@@ -1,10 +1,19 @@
 .header {
+  background-color: #ce2829;
+  display: flex;
+  justify-content: center;
+}
+.header1 {
+  width: 32%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #ce2829;
-  height: 207px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  gap: 3rem;
+  margin-left: 6rem;
 }
 
 .radyo-select {
@@ -38,17 +47,16 @@
   border: none;
 }
 
-.check-box{
+.check-box {
   display: flex;
-   gap: 13px;
-   flex-wrap: wrap;
-   width: 581px;
-   row-gap: 5px;
-  }
-  .check-box >div{
+  gap: 13px;
+  flex-wrap: wrap;
+  width: 581px;
+  row-gap: 5px;
+}
+.check-box > div {
   flex-basis: 150px;
-  }
-
+}
 
 .buton-div {
   width: 47px;
@@ -141,10 +149,19 @@ label {
   color: #d80027;
 }
 .bar {
-  padding-top: 50px;
-  margin-right: 330px;
   color: white;
 }
-.error-message{
+.error-message {
   color: red;
+}
+@media (max-width: 767px) {
+  .bar {
+    margin: auto; /* Push the bar to the left by using auto margin */
+    text-align: left; /* Align the text to the left */
+    margin-left: 2rem;
+  }
+  .header1 {
+    width: 100%;
+    margin-left: 0rem;
+  }
 }

@@ -113,11 +113,15 @@ export default function Order({ orderHandler }) {
   return (
     <>
       <header class="header">
-        <img src={images} alt=""></img>
-        <div class="bar">
-          <p>
-            Anasayfa <span>- Sipariş Oluştur</span>
-          </p>
+        <div class="header1">
+          <div>
+            <img src={images} alt=""></img>
+          </div>
+          <div class="bar">
+            <p>
+              Anasayfa <span>- Sipariş Oluştur</span>
+            </p>
+          </div>
         </div>
       </header>
       <div class="top">
