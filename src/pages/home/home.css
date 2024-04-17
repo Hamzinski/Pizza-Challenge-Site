@@ -8,7 +8,6 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-
 }
 h1 {
   font-family: "Bebas Neue", sans-serif;
@@ -29,8 +28,19 @@ h1 {
   font-size: 18px;
 }
 .test {
-  margin-bottom: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.test > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+}
+@media (min-width: 768px) {
+  .test {
+    margin-bottom: 400px;
+  }
 }

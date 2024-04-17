@@ -7,15 +7,17 @@ function Homepage() {
   return (
     <div class="home">
       <div class="test">
-        <img src={images} alt=""></img>
-        <h1>
-          KOD ACIKTIRIR
-          <br />
-          PIZZA, DOYURUR
-        </h1>
-        <Link id="order-pizza" to="/pizza">
-          <button id="aciktim">ACIKTIM</button>
-        </Link>
+        <div>
+          <img src={images} alt=""></img>
+          <h1>
+            KOD ACIKTIRIR
+            <br />
+            PIZZA, DOYURUR
+          </h1>
+          <Link id="order-pizza" to="/pizza">
+            <button id="aciktim">ACIKTIM</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
