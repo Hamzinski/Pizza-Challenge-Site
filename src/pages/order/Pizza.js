@@ -219,27 +219,31 @@ export default function Order({ orderHandler }) {
                       </p>
                     )}
                 </div>
+                <hr />
               </div>
               <div className="footer">
-                <label htmlFor="isim">Adınız:</label>
-                <input
-                  id="isim"
-                  onChange={handleChange}
-                  value={form.isim}
-                  name="isim"
-                />
-                {form.isim.length > 0 && form.isim.length <= 2 && (
-                  <p className="error-message">
-                    Lütfen 2'den fazla harf seçiniz.*
-                  </p>
-                )}
+                <div className="siparis-ad-form">
+                  <div>
+                    <label htmlFor="isim">Adınız:</label>
+                    <input
+                      id="isim"
+                      onChange={handleChange}
+                      value={form.isim}
+                      name="isim"
+                    />
+                  </div>
+                  {form.isim.length > 0 && form.isim.length <= 2 && (
+                    <p className="error-message">
+                      Lütfen 2'den fazla harf seçiniz.*
+                    </p>
+                  )}
+                </div>
+
                 <p className="siparis-notu">Sipariş Notu</p>
                 <div>
                   <textarea
                     name="not"
                     id="not"
-                    cols="70"
-                    rows="3"
                     value={form.not}
                     onChange={handleChange}
                     placeholder="Siparişine eklemek istediğiniz bir not var mı?"
