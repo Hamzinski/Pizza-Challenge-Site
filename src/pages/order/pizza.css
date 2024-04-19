@@ -1,10 +1,15 @@
-.header {
-  background-color: #ce2829;
+.allbody {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
-.header1 {
+.mainbody {
   width: 32%;
+}
+
+.header {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,18 +17,31 @@
   background-color: #ce2829;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  gap: 3rem;
-  margin-left: 6rem;
 }
-
+.header1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 32%;
+}
+.teknolojik {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fiyat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .radyo-select {
   display: flex;
   justify-content: space-between;
+  padding-right: 6rem;
 }
-
-.fiyat {
+.select-materyal {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .rate-part {
   display: flex;
@@ -31,9 +49,6 @@
   width: 150px;
   padding-right: 20px;
   color: #5f5f5f;
-}
-.select-materyal {
-  padding-right: 150px;
 }
 
 .siparis-notu {
@@ -74,18 +89,14 @@
 }
 
 .top {
-  width: 32%;
   display: flex;
-  margin-left: 695px;
   flex-direction: column;
 }
 
 #info {
   font-size: 16px;
   font-weight: 400;
-  width: 581px;
-  height: 138px;
-  line-height: 28.8px;
+  line-height: 2rem;
   text-align: start;
   color: #5f5f5f;
 }
@@ -156,12 +167,17 @@ label {
 }
 @media (max-width: 767px) {
   .bar {
-    margin: auto; /* Push the bar to the left by using auto margin */
-    text-align: left; /* Align the text to the left */
+    margin: auto;
+    text-align: left;
     margin-left: 2rem;
   }
   .header1 {
     width: 100%;
-    margin-left: 0rem;
+  }
+  .mainbody {
+    width: 90%;
+  }
+  .radyo-select {
+    padding-right: 0rem;
   }
 }
