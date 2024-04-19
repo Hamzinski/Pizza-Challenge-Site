@@ -5,8 +5,8 @@ import images from "../../Assets/logo.svg";
 
 function Homepage() {
   return (
-    <div class="home">
-      <div class="test">
+    <div className="home">
+      <div className="test">
         <div>
           <img src={images} alt=""></img>
           <h1>

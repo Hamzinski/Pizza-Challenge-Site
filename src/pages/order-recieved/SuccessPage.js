@@ -12,9 +12,9 @@ function Success({ order }) {
         <p>
           <span id="yolda">lezzetin yolda</span> <br />
           <span id="alindi">SİPARİŞ ALINDI</span>
-          <hr />
-          <br /> <span id="paap">Position Absolute Acı Pizza</span>{" "}
         </p>
+        <hr />
+        <span id="paap">Position Absolute Acı Pizza</span>{" "}
       </div>
       <div className="infos">
         <p>Boyut:{order.size}</p>
