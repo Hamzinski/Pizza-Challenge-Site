@@ -8,9 +8,11 @@ import int3 from "../../Assets/adv-aseets/icons/3.svg";
 import int4 from "../../Assets/adv-aseets/icons/4.svg";
 import int5 from "../../Assets/adv-aseets/icons/5.svg";
 import int6 from "../../Assets/adv-aseets/icons/6.svg";
+import cart2 from "../../Assets/adv-aseets/kart-2.png";
+import cart3 from "../../Assets/adv-aseets/kart-3.png";
 const categories = [
   { icon: int1, text: "YENİ! Kore" },
-  { icon: int2, text: "Pizza" },
+  { icon: int2, text: "teknoPizza" },
   { icon: int3, text: "Burger" },
   { icon: int4, text: "Kızartmalar" },
   { icon: int5, text: "Fast Food" },
@@ -45,6 +47,40 @@ function Homepage() {
               <p>{category.text}</p>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="cardbody">
+        <div className="secondcardbody">
+          <div className="cart1">
+            <div>
+              <h1>Özel Lezzetus</h1>
+              <p>Position:Absolute Acı Burger</p>
+              <Link id="siparis-ver-button" to="/pizza">
+                <button id="siparis-ver-button">SİPARİŞ VER</button>
+              </Link>
+            </div>
+          </div>
+          <div className="thirdcardbody">
+            <div className="cart2">
+              {" "}
+              <div>
+                <p>Hackathlon Burger Menü</p>
+                <Link id="siparis-ver-button" to="/pizza">
+                  <button id="siparis-ver-button">SİPARİŞ VER</button>
+                </Link>
+              </div>
+            </div>
+            <div className="cart3">
+              <div>
+                <p>
+                  <span>Çoooook</span> hızlı npm gibi kurye
+                </p>{" "}
+                <Link id="siparis-ver-button" to="/pizza">
+                  <button id="siparis-ver-button">SİPARİŞ VER</button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
