@@ -4,6 +4,7 @@ import "./pizza.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const initialForm = {
   isim: "",
@@ -116,10 +117,15 @@ export default function Order({ orderHandler }) {
         <header className="header">
           <div className="header1">
             <div className="teknolojik">
-              <img src={images} alt=""></img>
+              <Link id="anasayfa" to="/">
+                <img src={images} alt=""></img>
+              </Link>
             </div>
             <div className="bar">
-              <p>Anasayfa - Sipariş Oluştur</p>
+              <Link id="anasayfa" to="/">
+                <button>Anasayfa</button>
+              </Link>
+              <p>- Sipariş Oluştur </p>
             </div>
           </div>
         </header>

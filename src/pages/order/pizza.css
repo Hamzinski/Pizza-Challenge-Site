@@ -172,7 +172,22 @@ label {
   color: #d80027;
 }
 .bar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   color: white;
+}
+#anasayfa > button {
+  background: none;
+  border: none;
+  color: white;
+  font-family: "Barlow", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#anasayfa > button:hover {
+  transform: scale(1.1); /* 10% büyütme */
 }
 .error-message {
   color: red;
