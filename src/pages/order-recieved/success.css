@@ -1,19 +1,30 @@
-.success-container {
+.mainss {
   background-color: #ce2829;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.headerss {
+  height: 7rem;
+  background-color: #ce2829;
+}
+.success-container {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   color: white;
 }
-
-.success-container div img {
-  margin-top: 100px;
-  margin-bottom: 50px;
+.footerss {
+  height: 7rem;
+  background-color: #ce2829;
 }
 
 .dividiv {
   text-align: center;
+  width: 80%;
 }
 #alindi {
   font-family: "Roboto Condensed", sans-serif;
@@ -28,30 +39,55 @@
   font-family: "Barlow", sans-serif;
   font-size: 22px;
 }
+.main-info {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .infos {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left: 0;
-  width: 275px;
-  margin-top: 45px;
+  width: 80%;
   font-family: "Barlow", sans-serif;
 }
 .price-card {
-  border: 1px solid white;
-  border-radius: 6px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 10px;
-  text-align: center;
-  width: 350px;
+  border: 1px solid white;
+  border-radius: 6px;
+  width: 80%;
   font-family: "Barlow", sans-serif;
 }
 #secim {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 70%;
 }
 #tutar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 70%;
+}
+
+@media (max-width: 767px) {
+  .headerss {
+    height: 1rem;
+    background-color: #ce2829;
+  }
+  .success-container {
+    width: 100%;
+  }
+  .footerss {
+    height: 2rem;
+    background-color: #ce2829;
+  }
+  #alindi {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 3rem;
+  }
 }

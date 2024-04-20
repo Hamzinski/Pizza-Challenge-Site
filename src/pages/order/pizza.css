@@ -30,6 +30,12 @@
   justify-content: center;
   align-items: center;
 }
+.rate-part {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  color: #5f5f5f;
+}
 .fiyat {
   display: flex;
   align-items: center;
@@ -68,20 +74,17 @@
 .siparis-ad-form > p {
   font-size: 16px;
 }
+.siparis-notu {
+  width: 100%;
+  font-size: 20px;
+}
 textarea {
   width: 100%;
   box-sizing: border-box;
 }
-
-.rate-part {
+.siparis-ver {
   display: flex;
   justify-content: space-between;
-  width: 150px;
-  color: #5f5f5f;
-}
-.siparis-notu {
-  width: 100%;
-  font-size: 20px;
 }
 .buton {
   width: 47px;
@@ -115,10 +118,7 @@ textarea {
 .butonlar {
   display: flex;
 }
-.siparis-ver {
-  display: flex;
-  justify-content: space-between;
-}
+
 .siparis-toplam {
   display: flex;
   flex-direction: column;
@@ -194,5 +194,13 @@ label {
   }
   .check-box {
     justify-content: space-between;
+  }
+  .siparis-ver {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
   }
 }
