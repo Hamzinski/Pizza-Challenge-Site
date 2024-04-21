@@ -7,9 +7,7 @@ function Success({ order }) {
     <div className="mainss">
       <div className="headerss"></div>
       <div className="success-container">
-        <div>
-          <img src={logo} alt="" />
-        </div>
+        <img className="teknolojikyemekler" src={logo} alt="" />
         <div className="dividiv">
           <p>
             <span id="yolda">lezzetin yolda</span> <br />

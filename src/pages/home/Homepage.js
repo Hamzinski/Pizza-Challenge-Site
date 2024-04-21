@@ -23,12 +23,12 @@ function Homepage() {
     <div className="home">
       <div className="headerbody">
         <div className="test">
-          <img src={images} alt="" />
-          <h1>
+          <img className="teknolojikyemekler" src={images} alt="" />
+          <h1 className="teknolojikyemekler">
             <span id="firsatikacirma">fırsatı kaçırma</span> <br />
             KOD ACIKTIRIR
             <br />
-            PIZZA, DOYURUR
+            PİZZA, DOYURUR
           </h1>
           <Link id="order-pizza" to="/pizza">
             <button id="aciktim">ACIKTIM</button>
@@ -53,8 +53,8 @@ function Homepage() {
         <div className="secondcardbody">
           <div className="cart1">
             <div>
-              <h1>Özel Lezzetus</h1>
-              <p>Position:Absolute Acı Burger</p>
+              <h1 className="teknolojikyemekler">Özel Lezzetus</h1>
+              <p className="teknolojikyemekler">Position:Absolute Acı Burger</p>
               <Link id="siparis-ver-button" to="/pizza">
                 <button id="siparis-ver-button">SİPARİŞ VER</button>
               </Link>

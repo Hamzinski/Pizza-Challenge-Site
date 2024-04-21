@@ -219,11 +219,19 @@ h1 {
   }
   .cart1 {
     width: 100%;
+    background-position: right;
+  }
+  .cart1 > div {
+    padding-left: 1rem;
   }
   .cart2 {
     width: 100%;
   }
   .cart3 {
     width: 100%;
+  }
+  .teknolojikyemekler {
+    width: 80%;
+    text-shadow: 2px 2px 2px black;
   }
 }

@@ -198,6 +198,9 @@ label {
     text-align: left;
     margin-left: 2rem;
   }
+  .header {
+    width: 100%;
+  }
   .header1 {
     width: 100%;
   }
@@ -217,5 +220,8 @@ label {
     align-items: center;
     gap: 2rem;
     padding-top: 2rem;
+  }
+  .success-container {
+    padding-top: 3rem;
   }
 }

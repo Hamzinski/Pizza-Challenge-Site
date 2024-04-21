@@ -117,9 +117,7 @@ export default function Order({ orderHandler }) {
         <header className="header">
           <div className="header1">
             <div className="teknolojik">
-              <Link id="anasayfa" to="/">
-                <img src={images} alt=""></img>
-              </Link>
+              <img className="teknolojikyemekler" src={images} alt=""></img>
             </div>
             <div className="bar">
               <Link id="anasayfa" to="/">
