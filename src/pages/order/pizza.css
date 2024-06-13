@@ -5,6 +5,9 @@
   align-items: center;
   padding-bottom: 100px;
 }
+.success-container {
+  padding-bottom: 2rem;
+}
 .mainbody {
   width: 32%;
 }
