@@ -8,8 +8,6 @@ import int3 from "../../Assets/adv-aseets/icons/3.svg";
 import int4 from "../../Assets/adv-aseets/icons/4.svg";
 import int5 from "../../Assets/adv-aseets/icons/5.svg";
 import int6 from "../../Assets/adv-aseets/icons/6.svg";
-import cart2 from "../../Assets/adv-aseets/kart-2.png";
-import cart3 from "../../Assets/adv-aseets/kart-3.png";
 const categories = [
   { icon: int1, text: "YENİ! Kore" },
   { icon: int2, text: "teknoPizza" },
